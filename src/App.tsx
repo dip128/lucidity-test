@@ -7,6 +7,7 @@ import { IProduct } from './types';
 import { parseProduct } from './parsers/toStateParser';
 import CardComponent from './components/CardComponent';
 import ProductDetailsComp from './components/ProductDetailsComp';
+import {  getTotalValues } from './utils/inventoryUtils';
 
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
@@ -64,8 +65,8 @@ function App() {
     name: 'test',
     category: 'test',
     quantity: 1,
-    value: 1,
-    price: 1,
+    value: '$1',
+    price: '$1',
     isDisabled: false,
   }])
   const [inventoryDetails, setInventoryDetails] = useState<any>({
@@ -92,10 +93,16 @@ function App() {
     fetchDetails()
   }, [])
 
+  useEffect(() => {
+    const totalValues: any = getTotalValues(productDetails)
+    setInventoryDetails({ ...totalValues })
+
+  },[JSON.stringify(productDetails)])
 
 
-  const updateProduct = (id: number) => {
 
+  const updateProduct = (updatedList: Array<IProduct>) => {
+    setProductDetails([...updatedList])
   }
 
 

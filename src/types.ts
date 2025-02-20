@@ -4,9 +4,9 @@ export interface IProduct {
     id: number;
     name: string;
     category: string;
-    price: number;
+    price: string;
     quantity: number;
-    value: number;
+    value: string;
     isDisabled: boolean
 
   }
@@ -17,6 +17,6 @@ export interface IProduct {
     outofStock: number;
     totalCategory: number;
     isUserMode: boolean;
-    updateProduct: (id: number , values: any) => void;
+    updateProduct: (values: any) => void;
   };
 

@@ -130,8 +130,6 @@ function ProductDetailsComp() {
             </Modal>
 
             <div style={{ width: '90%', padding: '1em' }}>
-
-
                 <TableContainer component={Paper} sx={{ color: "aliceblue", backgroundColor: '#282c34' }}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
@@ -159,13 +157,13 @@ function ProductDetailsComp() {
                                     <TableCell align="center" sx={{ color: row.isDisabled ? 'grey' : 'aliceblue' }}>{row.value}</TableCell>
                                     <TableCell align="center">
 
-                                        <IconButton aria-label="edit" size="small" disabled={isUserMode} onClick={() => handleEdit(row)}>
+                                        <IconButton aria-label="edit" size="small" disabled={isUserMode || row.isDisabled} onClick={() => handleEdit(row)}>
                                             <EditIcon fontSize="inherit" sx={{ color: (isUserMode || row.isDisabled) ? 'grey' : "green" }} />
                                         </IconButton>
-                                        <IconButton aria-label="view" size="small" disabled={isUserMode}>
+                                        <IconButton aria-label="view" size="small" disabled={isUserMode || row.isDisabled}>
                                             <RemoveRedEyeIcon fontSize="inherit" sx={{ color: (isUserMode || row.isDisabled) ? 'grey' : "pink" }} onClick={() => handelDisabled(row?.id)} />
                                         </IconButton>
-                                        <IconButton aria-label="delete" size="small" disabled={isUserMode} onClick={() => handelDelete(row?.id)}>
+                                        <IconButton aria-label="delete" size="small" disabled={isUserMode || row.isDisabled} onClick={() => handelDelete(row?.id)}>
                                             <DeleteIcon fontSize="inherit" sx={{ color: (isUserMode || row.isDisabled) ? 'grey' : "red" }} />
                                         </IconButton>
                                     </TableCell>

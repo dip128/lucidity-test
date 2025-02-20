@@ -3,7 +3,7 @@
 export const parseProduct = (product: any): Array<any> => {
     return product?.map((item: any, id: number) => {
         return {
-            id: id || 1,
+            id: id + 1 || 100,
             name: item?.name,
             category: item?.category,
             value: item?.value,

@@ -97,7 +97,7 @@ function App() {
     const totalValues: any = getTotalValues(productDetails)
     setInventoryDetails({ ...totalValues })
 
-  },[JSON.stringify(productDetails)])
+  },[productDetails])
 
 
 

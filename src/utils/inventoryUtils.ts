@@ -8,7 +8,7 @@ export const getTotalValues = (productDetails: Array<IProduct>): any => {
     let outofStock = 0;
     let totalCategory = 0;
     let totalStoreValue = 0
-    productDetails.map((item) => {
+    productDetails.forEach((item) => {
         if(item.quantity === 0) outofStock++;
         category.add(item.category)
         totalStoreValue = totalStoreValue + Number(item.value.slice(1))

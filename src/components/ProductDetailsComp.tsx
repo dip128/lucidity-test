@@ -35,7 +35,7 @@ function ProductDetailsComp() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
     const handelDelete = (id: number) => {
-        const updatedProductList = products.filter((item) => item.id != id);
+        const updatedProductList = products.filter((item) => item.id !== id);
         updateProduct(updatedProductList)
     }
 
